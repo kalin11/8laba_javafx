@@ -1,0 +1,10 @@
+lab5
+lab5.collection
+lab5.command
+lab5.command.parsing
+lab5.command.tasksCommands
+lab5.command.tasksCommands.with_arguments
+lab5.command.tasksCommands.without_arguments
+lab5.command.visitor
+lab5.entity
+test

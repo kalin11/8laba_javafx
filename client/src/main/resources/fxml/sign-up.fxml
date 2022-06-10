@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab.client.Controllers.SignUpController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #480046;">
+         <children>
+            <ImageView fitHeight="74.0" fitWidth="200.0" layoutX="3.0">
+               <image>
+                  <Image url="@../img/Kinopoisk-logo.svg.png" />
+               </image>
+            </ImageView>
+            <ChoiceBox fx:id="signup_language" layoutX="10.0" layoutY="74.0" prefHeight="25.0" prefWidth="70.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="400.0" prefWidth="390.0">
+         <children>
+            <Label fx:id="username_label" alignment="CENTER" layoutY="182.0" prefHeight="36.0" prefWidth="160.0" text="%username">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="password_label" alignment="CENTER" layoutY="232.0" prefHeight="36.0" prefWidth="160.0" text="%password">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tf_username" layoutX="164.0" layoutY="188.0" prefHeight="28.0" prefWidth="192.0" promptText="%tf.username" />
+            <PasswordField fx:id="tf_password" layoutX="164.0" layoutY="236.0" prefHeight="28.0" prefWidth="192.0" promptText="%tf.password" />
+            <Label fx:id="question" alignment="CENTER" layoutX="18.0" layoutY="340.0" prefHeight="21.0" prefWidth="183.0" text="%have.acc" textAlignment="CENTER">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="signup_button" layoutX="106.0" layoutY="283.0" mnemonicParsing="false" onAction="#switchToMainScene" prefHeight="28.0" prefWidth="183.0" style="-fx-cursor: hand;" text="%sign.up.button">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="login_button" alignment="CENTER" layoutX="213.0" layoutY="335.0" mnemonicParsing="false" onAction="#switchToLoginScene" prefHeight="31.0" prefWidth="183.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="%log.in.button" textFill="#1c0794" underline="true">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Label fx:id="signup" alignment="CENTER" layoutX="46.0" layoutY="30.0" prefHeight="36.0" prefWidth="299.0" text="%signup">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>

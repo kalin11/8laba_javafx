@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="206.0" prefWidth="381.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab.client.Controllers.ScriptController">
+   <children>
+      <Label fx:id="label_path" layoutX="14.0" layoutY="74.0" prefHeight="58.0" prefWidth="167.0" text="%script.path.label">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <TextField fx:id="path" layoutX="169.0" layoutY="91.0" prefHeight="25.0" prefWidth="198.0" promptText="%script.tf" />
+      <Button fx:id="execute" layoutX="128.0" layoutY="154.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" text="%script.execute" />
+   </children>
+</AnchorPane>

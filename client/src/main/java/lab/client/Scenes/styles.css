@@ -1,0 +1,5 @@
+
+.username{
+    -fx-highlight-fill: -fx-accent;
+    -fx-highlight-text-fill: white;
+}

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab.client.Controllers.MainController">
+   <children>
+      <Label fx:id="usernameLabel" layoutX="14.0" layoutY="14.0" prefHeight="58.0" prefWidth="409.0" text="%hello">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <TableView fx:id="table" layoutX="14.0" layoutY="106.0" prefHeight="219.0" prefWidth="1260.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="6.0">
+        <columns>
+          <TableColumn fx:id="movie_id" maxWidth="70.0" minWidth="0.0" prefWidth="70.0" text="%clm_id" />
+          <TableColumn fx:id="title" maxWidth="70.0" minWidth="0.0" prefWidth="70.0" text="%clm_title" />
+            <TableColumn maxWidth="70.0" prefWidth="70.0" text="x" fx:id="x" />
+            <TableColumn fx:id="y" maxWidth="70.0" prefWidth="70.0" text="y" />
+            <TableColumn fx:id="creation_date" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="%clm_date" />
+            <TableColumn fx:id="oscars_count" maxWidth="90.0" prefWidth="90.0" text="%clm_oscars" />
+            <TableColumn fx:id="length" maxWidth="90.0" prefWidth="90.0" text="%clm_length" />
+            <TableColumn fx:id="genre" maxWidth="90.0" prefWidth="90.0" text="%clm_genre" />
+            <TableColumn fx:id="rating" maxWidth="90.0" prefWidth="90.0" text="%clm_rating" />
+            <TableColumn fx:id="person_name" maxWidth="90.0" prefWidth="90.0" text="%clm_name" />
+            <TableColumn fx:id="birthday" maxWidth="90.0" prefWidth="90.0" text="%clm_birthday" />
+            <TableColumn fx:id="weight" maxWidth="90.0" prefWidth="90.0" text="%clm_weight" />
+            <TableColumn fx:id="country" maxWidth="90.0" prefWidth="90.0" text="%clm_country" />
+            <TableColumn fx:id="owner" prefWidth="109.0" text="%clm_owner" />
+        </columns>
+      </TableView>
+      <ChoiceBox fx:id="choiceBox" layoutX="1061.0" layoutY="31.0" prefHeight="25.0" prefWidth="200.0" />
+      <Button fx:id="execute_command" alignment="CENTER" layoutX="918.0" layoutY="31.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="123.0" text="%execute" />
+      <Button fx:id="help_button" layoutX="949.0" layoutY="72.0" mnemonicParsing="false" text="help" />
+      <Label fx:id="choose_cmd" alignment="CENTER" layoutX="1061.0" layoutY="6.0" prefHeight="17.0" prefWidth="200.0" text="%choose.command" textAlignment="CENTER" />
+      <ChoiceBox fx:id="choose_table" layoutX="423.0" layoutY="11.0" prefWidth="150.0" />
+      <TextField fx:id="filter" layoutX="588.0" layoutY="11.0" prefHeight="25.0" prefWidth="270.0" />
+      <Label fx:id="dynamicInfo" layoutX="14.0" layoutY="377.0" prefHeight="123.0" prefWidth="323.0" text="Label" />
+      <Label fx:id="dynamicHead" layoutX="164.0" layoutY="344.0" prefHeight="33.0" prefWidth="134.0" text="Label" />
+      <Label fx:id="headLabel" alignment="CENTER" layoutX="14.0" layoutY="344.0" prefHeight="33.0" prefWidth="150.0" text="%head" />
+      <Label fx:id="average_value" layoutX="433.0" layoutY="60.0" prefHeight="33.0" prefWidth="103.0" text="Label" />
+      <Label fx:id="average_label" alignment="CENTER" layoutX="231.0" layoutY="60.0" prefHeight="33.0" prefWidth="181.0" text="%average" />
+      <ChoiceBox fx:id="main_lang" layoutX="14.0" layoutY="681.0" prefHeight="25.0" prefWidth="74.0" />
+      <Canvas fx:id="canvas" height="370.0" layoutX="434.0" layoutY="339.0" width="840.0" />
+      <TextField fx:id="color" editable="false" layoutX="14.0" layoutY="72.0" prefHeight="25.0" prefWidth="103.0" />
+   </children>
+</AnchorPane>
