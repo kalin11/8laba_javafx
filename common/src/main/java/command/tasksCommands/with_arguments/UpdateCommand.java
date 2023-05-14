@@ -38,13 +38,6 @@ public class UpdateCommand implements CommandWithMovie {
 
     public boolean execute(String[] arguments, BufferedReader in) {
         args = arguments;
-//        try {
-//            long x = Long.parseLong(arguments[0]);
-//        }catch (ArrayIndexOutOfBoundsException e){
-//            System.out.print("");
-//        } catch (NumberFormatException e) {
-//            System.out.println("тип аргумента неправильный");
-//        }
 
             return true;
         }

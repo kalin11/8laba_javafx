@@ -138,10 +138,6 @@ public class UpdateController implements Initializable {
                                 ZonedDateTime znd;
                                 System.out.println(birthday.getValue());
                                 try {
-//                                    System.out.println(birthday.getValue());
-//                                    String b1 = String.valueOf(product.getBirthday());
-//                                    System.out.println("show me how to love     " + b1);
-//                            ZonedDateTime znd = parse(b1);
                                     String birth = String.valueOf(birthday.getValue());
                                     System.out.println("teeeeeest   " + birth);
                                     String[] bitrhdat = birth.split("-");
@@ -222,7 +218,6 @@ public class UpdateController implements Initializable {
             String[] cmd = new String[2];
             cmd[0] = "remove_by_id";
             cmd[1] = product.getmovie_id().toString();
-//            cmd[1] = String.valueOf(product.getMovie_id());
             try {
                 getCommand.getCmdAndSendToTheServer(this.socket, cmd, this.username, this.password, null);
                 String answer = new GetDataFromServer().getData(this.socket).toString();
@@ -252,19 +247,6 @@ public class UpdateController implements Initializable {
             }
 
         });
-
-//        field_x.setOnAction(this::updateMovie);
-//        field_y.setOnAction(this::updateMovie);
-//        field_oscars.setOnAction(this::updateMovie);
-//        field_length.setOnAction(this::updateMovie);
-//        movie_genre.setOnAction(this::updateMovie);
-//        movie_rating.setOnAction(this::updateMovie);
-//        field_name.setOnAction(this::updateMovie);
-//        birthday.setOnAction(this::updateMovie);
-//        field_weight.setOnAction(this::updateMovie);
-//        movie_country.setOnAction(this::updateMovie);
-
-        //добавить обновление нормальное и удаление
     }
 
     public void forClosing(Stage stage){
@@ -283,7 +265,6 @@ public class UpdateController implements Initializable {
         String numbers;
         DateTimeFormatter formatter;
         LocalDate localDate = LocalDate.now();
-//            System.out.println(product.getBirthday());
         try {
             if (resourceBundle.getLocale().toString().equals("ru") || resourceBundle.getLocale().toString().equals("no")) {
                 System.out.println("хыыыыыыыыыыыыыыыыыыы + " + product.getBirthday());
@@ -327,9 +308,6 @@ public class UpdateController implements Initializable {
         }catch (NullPointerException e){
             this.birthday.setValue(null);
         }
-//            numbers = product.getBirthday().substring(0, 10);
-//        formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-//        localDate = LocalDate.parse(numbers, formatter);
 
         this.field_weight.setText(product.getWeight().toString());
         this.movie_country.setValue(product.getCountry());
@@ -378,7 +356,6 @@ public class UpdateController implements Initializable {
         return zonedDateTime;
     }
     public ZonedDateTime parseZND(String znd) {
-        //06/06/2022
         String hms;
         try {
             hms = product.getBirthday().split(" ")[1].trim() + ":00";
@@ -411,8 +388,6 @@ public class UpdateController implements Initializable {
             hms = H +":" +  M +":" +  S;
         }
 
-//        System.out.println(hms);
-//        System.out.println(znd + " " + hms + ".900000");
         String pattern = "MM/dd/yyyy HH:mm:ss";
         System.out.println("hms - "+hms);
         String zoneId = "";

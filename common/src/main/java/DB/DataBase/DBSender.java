@@ -22,7 +22,6 @@ public class DBSender {
             int id = -1;
             switch (cmd.getName()) {
                 case "clear":
-                    //короче, тут 3 запроса, сначала получаем айдишники по владельцу, потом мы удаляем это из Персонс
                     if (checkExesting(connection, cmd)){
                         getID = "select person from \"Movies\" where owner = ?";
                         ps = connection.prepareStatement(getID);

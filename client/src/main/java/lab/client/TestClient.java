@@ -20,7 +20,6 @@ public class TestClient extends Application {
         ClientConnect clientConnect = new ClientConnect();
         //обработка UnresolvedExcep
         launch(args);
-//        clientConnect.connectToServer(host, port);
         TestClient testClient = new TestClient();
         testClient.login = clientConnect.getLogin();
         testClient.password = clientConnect.getPassword();
@@ -31,8 +30,6 @@ public class TestClient extends Application {
         ResourceBundle resources = ResourceBundle.getBundle("bundles.Locale");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ConnectToServer.fxml"), resources);
         loader.setResources(resources);
-//        loader.setResources(ResourceBundle.getBundle("bundles.Locale", new Locale("ru")));
-//        Parent root = FXMLLoader.load(getClass().getResource("/fxml/ConnectToServer.fxml"), resources);
         Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setResizable(false);

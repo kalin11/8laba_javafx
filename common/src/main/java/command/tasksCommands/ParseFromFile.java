@@ -198,7 +198,6 @@ public class ParseFromFile {
      */
 
     public ZonedDateTime parseZND(String element){
-//        1903-01-01T12:12:12.900+02:30:17[Europe/Moscow];
         return ZonedDateTime.parse(element.trim());
 
     }

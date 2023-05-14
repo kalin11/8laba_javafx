@@ -331,12 +331,6 @@ public class EditingWithMovieController implements Initializable {
                 return resourceBundle.getString("movies.with.genre");
             }
         }
-//        else {
-//            Alert alert = new Alert(Alert.AlertType.ERROR);
-//            alert.setContentText("артем ты дебил");
-//            alert.setHeaderText(answer);
-//            alert.show();
-//        }
         return answer;
 
 

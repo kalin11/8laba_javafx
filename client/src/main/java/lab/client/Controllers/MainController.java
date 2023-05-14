@@ -63,8 +63,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class MainController implements Initializable {
     private Socket socket;
     private String path;
-//    @FXML
-//    private ChoiceBox<String> main_language;
     private Parent root;
     private int colorCounter = 0;
     @FXML
@@ -127,7 +125,6 @@ public class MainController implements Initializable {
     private Label average_label;
     @FXML
     private Label average_value;
-//    private GetCollectionFromDB getCollectionFromDB = new GetCollectionFromDB();
     private ResourceBundle resourceBundle;
     private Stage stage;
     private Scene scene;
@@ -157,8 +154,6 @@ public class MainController implements Initializable {
     }
 
 
-//"add", "update", "remove_by_id",
-//   "execute_script", "remove_lower", "remove_greater", "count_by_genre"
     public void setParent(Parent root){
         this.root = root;
     }
@@ -169,46 +164,6 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        id.setCellValueFactory(new PropertyValueFactory<>("movie_id"));
-//        title.setCellValueFactory(new PropertyValueFactory<>("title"));
-//        X.setCellValueFactory(new PropertyValueFactory<>("x"));
-//        Y.setCellValueFactory(new PropertyValueFactory<>("y"));
-//        creation_date.setCellValueFactory(new PropertyValueFactory<>("date"));
-//        oscars_count.setCellValueFactory(new PropertyValueFactory<>("oscarsCount"));
-//        length.setCellValueFactory(new PropertyValueFactory<>("length"));
-//        genre.setCellValueFactory(new PropertyValueFactory<>("movieGenre"));
-//        rating.setCellValueFactory(new PropertyValueFactory<>("genre"));
-//        person_name.setCellValueFactory(new PropertyValueFactory<>("person"));
-//        birthday.setCellValueFactory(new PropertyValueFactory<>("birthday"));
-//        weigth.setCellValueFactory(new PropertyValueFactory<>("weigth"));
-//        country.setCellValueFactory(new PropertyValueFactory<>("country"));
-//        owner.setCellValueFactory(new PropertyValueFactory<>("owner"));
-//        GetCollectionFromDB getCollectionFromDB = new GetCollectionFromDB();
-//        try {
-//            System.out.println(getCollectionFromDB.getDataBase().get(0).allInfo());
-//            System.out.println(getCollectionFromDB.getDataBase().get(0).getBirthday().getClass());
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//        ObservableList<Product> observableList = FXCollections.observableList(new LinkedList<>());
-//            observableList.add(new Product(1L, "Vasya", 1,1, new Date(), 1, 2L, MovieGenre.ACTION, MpaaRating.G, "Kolya", ZonedDateTime.now(), 99F, Country.INDIA, "user"));
-//        table.setItems(observableList);
-//        if (resourceBundle.getLocale().toString().equals("ru")){
-//            main_language.setValue("RU");
-//        }
-//        else if (resourceBundle.getLocale().toString().equals("en")){
-//            main_language.setValue("ENG");
-//        }
-//        else if (resourceBundle.getLocale().toString().equals("lv")){
-//            main_language.setValue("LVA");
-//        }
-//        else if (resourceBundle.getLocale().toString().equals("no")){
-//            main_language.setValue("NOR");
-//        }
-
-//        color.setStyle("-fx-control-inner-background: #" + Integer.toHexString(login.hashCode()));
         setResourceBundle(resourceBundle);
         if (resourceBundle.getLocale().toString().equals("ru")){
             main_lang.setValue("RU");
@@ -231,25 +186,8 @@ public class MainController implements Initializable {
             main_lang.setValue("NOR");
             tables = new String[]{"Oscar teller", "lengde", "sjanger", "vurdering", "vekt", "land", "Eieren"};
             choose_table.getItems().addAll(tables);
-//            clm_title = tittel
-//            clm_date = opprettelsesdato
-//            clm_oscars = Oscar teller
-//                    clm_length = lengde
-//            clm_genre = sjanger
-//            clm_rating = vurdering
-//            clm_name = personens navn
-//                    clm_birthday = fødselsdag
-//            clm_weight = vekt
-//            clm_country = land
-//            clm_owner = Eieren
         }
-//        commands = new String[]{resourceBundle.getString("command.add"), resourceBundle.getString("command.clear"),
-//                resourceBundle.getString("command.script"), resourceBundle.getString("command.remove.lower"), resourceBundle.getString("command.remove.by.id"),
-//                resourceBundle.getString("command.remove.greater"), resourceBundle.getString("command.count.by.genre"), resourceBundle.getString("command.print.unique.oscars.count")};
         filter.setText(resourceBundle.getString("enter.your.value"));
-//        tables = new String[]{resourceBundle.getString("tables.oscars"), resourceBundle.getString("tables.length"), resourceBundle.getString("tables.genre"),
-//        resourceBundle.getString("tables.rating"), resourceBundle.getString("tables.weight"), resourceBundle.getString("tables.country"),
-//        resourceBundle.getString("tables.owner")};
         answers = new ArrayList<>();
         answers.add("коллекция пустая");
         answers.add("нет объектов, принадлежащих вам");
@@ -272,28 +210,9 @@ public class MainController implements Initializable {
         });
 
 
-
-//        movie_id.setOnEditStart(productLongCellEditEvent -> {
-//            Alert alert = new Alert(Alert.AlertType.ERROR);
-//            alert.show();
-//        });
         choiceBox.getItems().addAll(commands);
         help_button.setOnMouseEntered(event -> {
             Tooltip tooltip = new Tooltip();
-//            tooltip.setText("print_unique_oscars_count - вывести уникальные значения поля oscarsCount всех элементов в коллекции\n" +
-//                    "remove_greater {element} - удалить из коллекции все элементы, превыщающие заданный\n" +
-//                    "head - вывести первый элемент коллекции\n" +
-//                    "show - вывести в стандартный поток вывода все элементы коллекции в строковом представлении\n" +
-//                    "remove_lower {element} - удалить из коллекции все элементы, меньшие,чем заданный\n" +
-//                    "add {element} - добавить новый элемент в коллекцию\n" +
-//                    "execute_script file_name - считать и исполнить скрипт из указанного файла. В скрипте содержатся команды в таком же виде, в котором их вводит пользователь в интерактивном режиме.\n" +
-//                    "info - вывести информацию о коллекции\n" +
-//                    "update id {element} - обновить значение элемента коллекции, id которого равен заданному\n" +
-//                    "average_of_length - вывести среднее значение поля length для всех элементов коллекции\n" +
-//                    "count_by_genre genre - вывести количество элементов, значение поля genre которых равно заданному\n" +
-//                    "remove_by_id id - удалить элемент из коллекции по его id\n" +
-//                    "clear - очистить коллекцию\n" +
-//                    "help - вывести инфо о командах");
             tooltip.setText(this.resourceBundle.getString("help"));
             help_button.setTooltip(tooltip);
         });
@@ -305,14 +224,9 @@ public class MainController implements Initializable {
     public void displayName(String username) {
         this.login = username;
         System.out.println(login.hashCode());
-//        this.hex = Integer.toHexString(login.substring(1).hashCode());
         System.out.println("я hex "+ hex);
         color.setStyle("-fx-control-inner-background: #" + hex);
-//        System.out.println("я родился + "+hex);
         usernameLabel.setText(resourceBundle.getString("hello") + username);
-//        System.out.println(Integer.toHexString(login.substring(1).hashCode()));
-//        color.setStyle("-fx-control-inner-background: #" + login.substring(1, 5).hashCode());
-
     }
 
     public void setHex(String username){
@@ -335,7 +249,6 @@ public class MainController implements Initializable {
         if (code < 0){
             code = -code;
         }
-//        System.out.println(code);
         return code;
     }
 
@@ -345,23 +258,8 @@ public class MainController implements Initializable {
         GraphicsContext context = canvas.getGraphicsContext2D();
         String color = String.valueOf(getColor(login));
         context.setFill(Color.web("#"+color));
-//        context.fillRect(x0/2-25+x, y0/2-25-y, 50, 50);
         Rectangle rectangle = new Rectangle(x0/2-25+x, y0/2-25-y,50,50);
         draw(context, rectangle);
-
-
-//        draw(context, rectangle);
-
-
-
-//        rectangle.setOnMouseClicked(new EventHandler<MouseEvent>() {
-//            @Override
-//            public void handle(MouseEvent mouseEvent) {
-//                if (mouseEvent.getClickCount() == 2){
-//
-//                }
-//            }
-//        });
     }
 
     public void draw(GraphicsContext context, Rectangle rectangle){
@@ -374,7 +272,6 @@ public class MainController implements Initializable {
         GraphicsContext context = canvas.getGraphicsContext2D();
         String color = String.valueOf(getColor(login));
         context.setFill(Color.web("#"+color));
-//        context.fillRect(x0/2-25+x, y0/2-25-y, 50, 50);
         Rectangle rectangle = new Rectangle(x0/2-25+x, y0/2-25-y,50,50);
         drawAnimate(context, rectangle);
     }
@@ -388,24 +285,6 @@ public class MainController implements Initializable {
             context.fillRect(rectangle.getX()+12.5, rectangle.getY()+12.5,rectangle.getHeight()/2, rectangle.getWidth()/2);
         }
     }
-
-//    public void animate(int x, int y, String login){
-//        double x0 = canvas.getWidth();
-//        double y0 = canvas.getHeight();
-//        GraphicsContext context = canvas.getGraphicsContext2D();
-//        String color = Integer.toHexString(login.substring(1).hashCode());
-//        context.setFill(Color.web("#"+color));
-////        context.fillRect(x0/2-25+x, y0/2-25-y, 50, 50);
-//        Rectangle rectangle = new Rectangle(x0/2-25+x, y0/2-25-y,50,50);
-//        AnimationTimer animationTimer = new AnimationTimer() {
-//            @Override
-//            public void handle(long l) {
-//                rectangle.setRotate(rectangle.getRotate() + 10);
-//            }
-//        };
-//        animationTimer.start();
-//
-//    }
 
     public void drawCoordinatesSystem(){
         canvas.setHeight(370);
@@ -434,7 +313,6 @@ public class MainController implements Initializable {
     }
 
     public void getCommand(ActionEvent ev) {
-//        private String[] commands = {"update", "execute_script"};
         cmdsWithoutArgs.add("clear");
         cmdsWithoutArgs.add("print_unique_oscars_count");
         cmdsWithMovie.add("add");
@@ -558,31 +436,13 @@ public class MainController implements Initializable {
         double y = Math.pow((y2 - y1), 2);
         double result = Math.sqrt(x + y);
         return result;
-//        if (result < 25*Math.sqrt(2)){
-//            return true;
-//        }else return false;
     }
 
     public void loadTable() {
         if (filter.getText().equals(resourceBundle.getString("enter.your.value")) || filter.getText().isEmpty()) {
             FLAG = false;
         }
-//        movie_id.setCellValueFactory(null);
-//        title.setCellValueFactory(null);
-//        x.setCellValueFactory(null);
-//        y.setCellValueFactory(null);
-//        creation_date.setCellValueFactory(null);
-//        oscars_count.setCellValueFactory(null);
-//        length.setCellValueFactory(null);
-//        genre.setCellValueFactory(null);
-//        rating.setCellValueFactory(null);
-//        person_name.setCellValueFactory(null);
-//        birthday.setCellValueFactory(null);
-//        weight.setCellValueFactory(null);
-//        country.setCellValueFactory(null);
-//        owner.setCellValueFactory(null);
         try {
-//            GetCollectionFromDB getCollectionFromDB = new GetCollectionFromDB();
             list = FXCollections.observableList(new GetCollectionFromDB().getDataBase());
             canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
             drawCoordinatesSystem();
@@ -633,18 +493,6 @@ public class MainController implements Initializable {
                 } else {
                     drawRectange(list.get(i).getX(), list.get(i).getY(), list.get(i).getOwner());
                 }
-//                    System.out.println(canvasChosen(list.get(finalI).getX(), list.get(finalI).getY(), (int) (mouseEvent.getX() - canvas.getWidth()/2) , (int) (mouseEvent.getY() - canvas.getHeight() / 2)));
-//                    if (canvasChosen(list.get(finalI).getX(), list.get(finalI).getY(), (int) (mouseEvent.getX() - canvas.getWidth()/2) , (int) (mouseEvent.getY() - canvas.getHeight() / 2))){
-//                        System.out.println("хуй");
-//                    }
-//                    if (canvasChosen(list.get(finalI).getX(), list.get(finalI).getY(), (int) mouseEvent.getX(), (int) mouseEvent.getY())) {
-//                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//                        alert.setContentText("хуй");
-//                        alert.show();
-//                    }
-//                    System.out.println((mouseEvent.getX() - canvas.getWidth() / 2));
-//                    System.out.println(list.get(finalI).getX() + " " +mouseEvent.getY());
-//                    System.out.println(Math.sqrt((mouseEvent.getX() - list.get(finalI).getX()) * (mouseEvent.getX() - list.get(finalI).getX()) + (mouseEvent.getY() - list.get(finalI).getY())*(mouseEvent.getY() - list.get(finalI).getY())));
 
             }
             canvas.setOnMouseClicked(mouseEvent -> {
@@ -656,7 +504,6 @@ public class MainController implements Initializable {
                             ArrayList<Double> values = new ArrayList<>();
                             values.add(distance);
                             res = Collections.min(values);
-//                    System.out.println("min value is " + res);
                         }
                         if (res == distance) {
                             SceneController sceneController = new SceneController();
@@ -792,17 +639,6 @@ public class MainController implements Initializable {
         });
     }
 
-    //    public synchronized void updating(){
-//        Timer timer = new Timer();
-//        timer.schedule(new TimerTask() {
-//            @Override
-//            public void run() {
-//                if ((filter.getText().equals("enter your value") || filter.getText().isEmpty())) {
-//                    updateTable();
-//                }
-//
-//            }}, 0, 1000);
-//    }
     public void updating() {
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
@@ -811,22 +647,11 @@ public class MainController implements Initializable {
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
-//                        GetCommand getCommand = new GetCommand();
-//                        String[] head = {"head"};
-//                        String[] info = {"info"};
                         if (!FLAG) {
-//                            try {
-//                                getCommand.getCmdAndSendToTheServer(socket, head, login, password, null);
-//                                String answer = new GetDataFromServer().getData(socket).toString();
-//                                dynamicHead.setText(answer);
-//                                getCommand.getCmdAndSendToTheServer(socket, info, login, password, null);
-//                                String infoAns = new GetDataFromServer().getData(socket).toString();
-//                                dynamicInfo.setText(infoAns);
                             loadTable();
                             try {
                                 dynamicHead.setText(list.get(0).getTitle());
                             }catch (IndexOutOfBoundsException e) {}
-//                            average_value.setText(String.valueOf(list.stream().mapToDouble(Product::getLength).average().orElse(0)));
                             String average = String.valueOf(list.stream().mapToDouble(Product::getLength).average().orElse(0));
                             if (average.length() > 7){
                                 average_value.setText(average.substring(0,7));
@@ -837,12 +662,6 @@ public class MainController implements Initializable {
                             dynamicInfo.setText(resourceBundle.getString("list.class") + " class java.util.Collections$SynchronizedList" + "\n"+
                                                 resourceBundle.getString("list.size")+ " " + list.size() + "\n");
 
-
-//                            } catch (IOException e) {
-//                                e.printStackTrace();
-//                            }catch (ClassNotFoundException e){
-//                                e.printStackTrace();
-//
                         }
                     }
                 });
@@ -857,144 +676,12 @@ public class MainController implements Initializable {
         table.setOnSort(tableViewSortEvent -> {
         });
     }
-//
-//    public void updating(){
-//        Runnable runnable = new Runnable() {
-//            @Override
-//            public void run() {
-//                try {
-//                    if ((filter.getText().equals("enter your value") || filter.getText().isEmpty())) {
-//                        updateTable();
-//                    }
-//                }catch (IllegalStateException e){
-//                    Alert alert = new Alert(Alert.AlertType.ERROR);
-//                    alert.show();
-//                }
-//            }
-//        };
-//        ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
-//        executor.scheduleAtFixedRate(runnable, 0, 1, TimeUnit.SECONDS);
-//
-//    }
-//
-//    public void updating() {
-//        Platform.runLater(new Runnable() {
-//            @Override
-//            public void run() {
-//                Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1),
-//                        ae -> {
-//                            if (isAllowToUpdate()) {
-//                                while (isAllowToUpdate()) {
-//                                    table.setItems(reserve);
-//                                }
-//                            }
-//                            else if ((filter.getText().equals("enter your value") || filter.getText().isEmpty())) {
-//                                updateTable();
-//                            }
-//
-//
-//                        }));
-//                timeline.setCycleCount(Animation.INDEFINITE);
-//                timeline.play();
-//            }
-//        });
-//    }
-//
-//
-//
-//    public boolean isAllowToUpdate(){
-//        AtomicBoolean allow = new AtomicBoolean(false);
-//        table.setOnSort(tableViewSortEvent -> {
-//            allow.set(true);
-//        });
-//        return allow.get();
-//    }
 
 
 
     public void changeLanguage(ActionEvent event){
         String language = main_lang.getValue();
         setLabels(language);
-//        if (language.equals("RU")){
-//            ResourceBundle resources = ResourceBundle.getBundle("bundles.Locale", new Locale("RU"));
-//            usernameLabel.setText(resources.getString("hello") + " " + login);
-//            average_label.setText(resources.getString("average"));
-//            execute_command.setText(resources.getString("execute"));
-//            choose_cmd.setText(resources.getString("choose.command"));
-//            headLabel.setText(resources.getString("head"));
-//            movie_id.setText(resources.getString("clm_id"));
-//            title.setText(resources.getString("clm_title"));
-//            creation_date.setText(resources.getString("clm_date"));
-//            length.setText(resources.getString("clm_length"));
-//            genre.setText(resources.getString("clm_genre"));
-//            rating.setText(resources.getString("clm_rating"));
-//            person_name.setText(resources.getString("clm_name"));
-//            birthday.setText(resources.getString("clm_birthday"));
-//            weight.setText(resources.getString("clm_weight"));
-//            country.setText(resources.getString("clm_country"));
-//            owner.setText(resources.getString("clm_owner"));
-//            setResourceBundle(resources);
-//        }
-//        else if (language.equals("ENG")){
-//            ResourceBundle resources = ResourceBundle.getBundle("bundles.Locale", new Locale("en"));
-//            usernameLabel.setText(resources.getString("hello") + " " + login);
-//            average_label.setText(resources.getString("average"));
-//            execute_command.setText(resources.getString("execute"));
-//            choose_cmd.setText(resources.getString("choose.command"));
-//            headLabel.setText(resources.getString("head"));
-//            movie_id.setText(resources.getString("clm_id"));
-//            title.setText(resources.getString("clm_title"));
-//            creation_date.setText(resources.getString("clm_date"));
-//            length.setText(resources.getString("clm_length"));
-//            genre.setText(resources.getString("clm_genre"));
-//            rating.setText(resources.getString("clm_rating"));
-//            person_name.setText(resources.getString("clm_name"));
-//            birthday.setText(resources.getString("clm_birthday"));
-//            weight.setText(resources.getString("clm_weight"));
-//            country.setText(resources.getString("clm_country"));
-//            owner.setText(resources.getString("clm_owner"));
-//            setResourceBundle(resources);
-//        }
-//        else if (language.equals("LVA")){
-//            ResourceBundle resources = ResourceBundle.getBundle("bundles.Locale", new Locale("LV"));
-//            usernameLabel.setText(resources.getString("hello") + " " + login);
-//            average_label.setText(resources.getString("average"));
-//            execute_command.setText(resources.getString("execute"));
-//            choose_cmd.setText(resources.getString("choose.command"));
-//            headLabel.setText(resources.getString("head"));
-//            movie_id.setText(resources.getString("clm_id"));
-//            title.setText(resources.getString("clm_title"));
-//            creation_date.setText(resources.getString("clm_date"));
-//            length.setText(resources.getString("clm_length"));
-//            genre.setText(resources.getString("clm_genre"));
-//            rating.setText(resources.getString("clm_rating"));
-//            person_name.setText(resources.getString("clm_name"));
-//            birthday.setText(resources.getString("clm_birthday"));
-//            weight.setText(resources.getString("clm_weight"));
-//            country.setText(resources.getString("clm_country"));
-//            owner.setText(resources.getString("clm_owner"));
-//            setResourceBundle(resources);
-//        }
-//        else if (language.equals("NOR")){
-//            ResourceBundle resources = ResourceBundle.getBundle("bundles.Locale", new Locale("NO"));
-//            usernameLabel.setText(resources.getString("hello") + " " + login);
-//            average_label.setText(resources.getString("average"));
-//            execute_command.setText(resources.getString("execute"));
-//            choose_cmd.setText(resources.getString("choose.command"));
-//            headLabel.setText(resources.getString("head"));
-//            movie_id.setText(resources.getString("clm_id"));
-//            title.setText(resources.getString("clm_title"));
-//            creation_date.setText(resources.getString("clm_date"));
-//            length.setText(resources.getString("clm_length"));
-//            genre.setText(resources.getString("clm_genre"));
-//            rating.setText(resources.getString("clm_rating"));
-//            person_name.setText(resources.getString("clm_name"));
-//            birthday.setText(resources.getString("clm_birthday"));
-//            weight.setText(resources.getString("clm_weight"));
-//            country.setText(resources.getString("clm_country"));
-//            owner.setText(resources.getString("clm_owner"));
-//            setResourceBundle(resources);
-//        }
     }
     public void setLabels(String locale){
         if (locale.equals("NOR")){
@@ -1067,12 +754,6 @@ public class MainController implements Initializable {
                 return resourceBundle.getString("movies.with.genre");
             }
         }
-//        else {
-//            Alert alert = new Alert(Alert.AlertType.ERROR);
-//            alert.setContentText("артем ты дебил");
-//            alert.setHeaderText(answer);
-//            alert.show();
-//        }
         return answer;
     }
 }

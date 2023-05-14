@@ -14,13 +14,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class GetCollectionFromDB {
-    //данные БД надо с properties
-    //for local
-    private static final String url = "jdbc:postgresql://localhost:63333/studs";
-    //for server
-//    private static final String url = "jdbc:postgresql://pg:5432/studs";
-    private static final String username = "s336805";
-    private static final String password = "ipb588";
+    private static final String url = "url";
+    private static final String username = "username";
+    private static final String password = "password";
     private static final String driver = "org.postgresql.Driver";
     private LinkedCollection collection = new LinkedCollection();
     private List<Movie> list = Collections.synchronizedList(new LinkedList<>());
@@ -35,7 +31,6 @@ public class GetCollectionFromDB {
     public LinkedCollection getCollection() throws SQLException, ClassNotFoundException {
         try {
             Class.forName(driver);
-//            Connection connection = DriverManager.getConnection(url, username, password);
             PreparedStatement ps;
             ResultSet resultSet;
             String getOneRow = "select num, title, x, y, creation_date, oscars_count, length,  genre, rating, name, birthday, weight, nationality from \"Movies\" as M inner join \"Persons\" P on P.id = M.person order by num";
@@ -46,7 +41,6 @@ public class GetCollectionFromDB {
                 getColl(resultSet);
             }
         }catch (SQLException e){
-//            System.out.println("не удалось подключиться к БД");
             e.printStackTrace();
         }
         return collection;
@@ -54,7 +48,6 @@ public class GetCollectionFromDB {
 
     public List<Movie> getList() throws SQLException, ClassNotFoundException{
         Class.forName(driver);
-//        Connection connection = DriverManager.getConnection(url, username, password);
         PreparedStatement ps;
         ResultSet resultSet;
         String getOneRow = "select num, title, x, y, creation_date, oscars_count, length,  genre, rating, name, birthday, weight, nationality from \"Movies\" as M inner join \"Persons\" P on P.id = M.person order by num";
@@ -72,7 +65,6 @@ public class GetCollectionFromDB {
             Class.forName(driver);
             PreparedStatement ps;
             ResultSet resultSet;
-//            Connection connection = DriverManager.getConnection(url, username, password);
             String getOneRow = "select num, title, x, y, creation_date, oscars_count, length,  genre, rating, name, birthday, weight, nationality, owner from \"Movies\" as M inner join \"Persons\" P on P.id = M.person order by num";
             ps = connection.prepareStatement(getOneRow);
             ps.execute();
@@ -80,20 +72,6 @@ public class GetCollectionFromDB {
             while (resultSet.next()) {
                 getlist(resultSet);
                 Product product = new Product(1, "1", 1, 1, new Date(), 1, 1L, MovieGenre.ACTION, MpaaRating.G, "1", ZonedDateTime.now(), 99F, Country.INDIA, "1");
-//                product.setmovie_id(resultSet.getLong(1));
-//                product.setTitle(resultSet.getString(2));
-//                product.setX(resultSet.getInt(3));
-//                product.setY(resultSet.getInt(4));
-//                product.setDate(resultSet.getString(5));
-//                product.setOscarsCount(resultSet.getInt(6));
-//                product.setLength(resultSet.getLong(7));
-//                product.setMovieGenre(MovieGenre.values()[resultSet.getInt(8)].name());
-//                product.setRating(MpaaRating.values()[resultSet.getInt(9)].name());
-//                product.setPerson(resultSet.getString(10));
-//                product.setBirthday(fromTimestamp(resultSet, 11).toString());
-//                product.setWeigth(resultSet.getFloat(12));
-//                product.setCountry(Country.values()[resultSet.getInt(13)].name());
-//                product.setOwner(resultSet.getString(14));
                 product.setMovie_id(resultSet.getLong(1));
                 product.setTitle(resultSet.getString(2));
                 product.setX(resultSet.getInt(3));
@@ -177,8 +155,6 @@ public class GetCollectionFromDB {
         }else {
             person.setBirthday(fromTimestamp(resultSet, 11));
         }
-
-//            person.setBirthday(ZonedDateTime.now());
         person.setWeight(resultSet.getFloat(12));
         person.setNationality(Country.values()[resultSet.getInt(13)]);
         movie.setOperator(person);
@@ -203,7 +179,6 @@ public class GetCollectionFromDB {
         }
         person.setName(resultSet.getString(10));
         person.setBirthday(fromTimestamp(resultSet, 11));
-//            person.setBirthday(ZonedDateTime.now());
         person.setWeight(resultSet.getFloat(12));
         person.setNationality(Country.values()[resultSet.getInt(13)]);
         movie.setOperator(person);

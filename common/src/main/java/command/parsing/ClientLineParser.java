@@ -29,7 +29,6 @@ public class ClientLineParser {
         return regok;
     }
 
-    ///////////
     public Object readLine() throws IOException {
         String line = in.readLine();
         if (line == null) {
@@ -37,8 +36,6 @@ public class ClientLineParser {
             return "";
         }
         else {
-            ///
-            ////////////////
             final String[] cmds = line.trim().replaceAll("\\s+", " ").toLowerCase().split(" ");
             final String[] commandArguments = new String[cmds.length - 1];
             System.arraycopy(cmds, 1, commandArguments, 0, cmds.length - 1);
@@ -51,9 +48,6 @@ public class ClientLineParser {
                     return "exit";
                 }
                 if (c.valid(commandArguments)) {
-//                    if (cmds[0].equals("add") || cmds[0].equals("update") || cmds[0].equals("remove_lower") || cmds[0].equals("remove_greater")) {
-//                        return c.accept()
-//                    }
                     if (c.execute(commandArguments, in)) {
                         if (commandArguments.length!=0) {
                             return cmds[0] + " " + commandArguments[0];
@@ -62,16 +56,12 @@ public class ClientLineParser {
                             System.out.println(cmds[0]);
                             return cmds[0];
                         }
-                        //создаем команду тута
-                        //сериализация и отправка на сервак идет
                     } else {
                         shouldClose = true;
                     }
                 } else return "";
             }
         }
-        ///////////////////
-
         return "";
     }
 }

@@ -12,9 +12,6 @@ import java.util.Scanner;
 
 public class Server {
     public static void main(String[] args) throws BindException, SQLException, ClassNotFoundException {
-        //todo ну тут короче будет предложение для ввода хоста и порта
-        //todo UnresolvedAddressExecep
-        //todo BindExecep
         try {
             String host = "localhost";
             int port = 16000;
@@ -27,9 +24,6 @@ public class Server {
         }catch (BindException e){
             System.out.println("адрес уже заиспользован");
         }
-//        Class.forName("org.postgresql.Driver");
-//        Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:63333/studs", "s336805", "ipb588");
-//        connection.prepareStatement("select * from \"Movies\" ");
     }
 
 }

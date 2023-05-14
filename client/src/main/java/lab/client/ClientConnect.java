@@ -37,18 +37,6 @@ public class ClientConnect {
         return password;
     }
 
-//    public void connect(String host, int port) throws UnresolvedAddressException{
-//        try{
-//            SocketChannel clientSocket = SocketChannel.open();
-//            clientSocket.configureBlocking(false);
-//            clientSocket.connect(new InetSocketAddress(host, port));
-//            clientSocket.register(sel, SelectionKey.OP_CONNECT);
-//        }catch (IOException e){
-//            Alert alert = new Alert(Alert.AlertType.ERROR);
-//            alert.setContentText("сервера нет/хост занят");
-//            alert.show();
-//        }
-//    }
 
     public void connectToServer(String host, int port) throws UnresolvedAddressException {
         boolean okay = false;
@@ -59,10 +47,8 @@ public class ClientConnect {
                 SocketChannel clientSocket = SocketChannel.open();
                 clientSocket.configureBlocking(false);
                 clientSocket.connect(new InetSocketAddress(host, port));
-//                System.out.println("подключение успешно");
                 okay = true;
                 clientSocket.register(selector, SelectionKey.OP_WRITE);
-                //тут переделать на write, чтобы заработало на хелиосе
                 while (true){
                     selector.select();
                     Iterator<SelectionKey> iterator = selector.selectedKeys().iterator();
@@ -76,29 +62,16 @@ public class ClientConnect {
                                 try{
                                     client.finishConnect();
                                     System.out.println("Добро пожаловать, новый пользователь! Вам необходимо войти в существующий аккаунт или же зарегестрироваться\nДля регистрации введите 'register', для входа в сущ. аккуаунт - 'login'");
-//                                    System.out.println();
                                     client.register(selector, SelectionKey.OP_WRITE);
                                     continue;
                                 }catch (IOException e){
                                     System.out.println("что-то пошло не так");
-//                                    Alert alert = new Alert(Alert.AlertType.ERROR);
-//                                    alert.setContentText("сервера нет/хост занят");
-//                                    alert.show();
                                 }
                             }else {
                                 System.out.println("как?");
                             }
                         }
                         if (key.isWritable()){
-//                            LogInController log = new LogInController();
-//                            log.getButton_login().setOnAction(new EventHandler<ActionEvent>() {
-//                                @Override
-//                                public void handle(ActionEvent event) {
-//                                    login = log.getLabel_username().getText();
-//                                    password = log.getTf_password().getText();
-//                                    clientSocket.register(selector, SelectionKey.OP_READ);
-//                                }
-//                            });
                             if (!authorization.isLog_or_reg()) {
                                 try {
                                     authorization.autorize(client);

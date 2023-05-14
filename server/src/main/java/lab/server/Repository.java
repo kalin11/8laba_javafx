@@ -7,10 +7,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Repository {
-//    private static final String url = "jdbc:postgresql://localhost:63333/studs";
-    private static final String url = "jdbc:postgresql://pg:5432/studs";
-    private static final String username = "s336805";
-    private static final String password = "ipb588";
+    private static final String url = "url";
+    private static final String username = "usename";
+    private static final String password = "password";
     private static final String driver = "org.postgresql.Driver";
     Cmd cmd;
     String movie;
@@ -27,13 +26,4 @@ public class Repository {
     }
 
 
-
-//    public void sendStatementToDB() throws SQLException, ClassNotFoundException {
-//        switch (cmd.getName()){
-//            case "add":
-//                Class.forName(driver);
-//                connection = DriverManager.getConnection(url, username, password);
-//                cmd.getMovie().getOperator().
-//        }
-//    }
 }

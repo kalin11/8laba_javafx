@@ -21,9 +21,7 @@ public class ConnectToDB {
     public Connection connectToDB(){
         try {
             Properties properties = new Properties();
-//            String dbFile = "C:\\Users\\kal1n\\IdeaProjects\\lab7TestThread\\common\\src\\main\\java\\DB\\DataBase\\db.properties";
-//            String dbFile = "C:\\Users\\kal1n\\IdeaProjects\\lab7TestThread\\common\\src\\main\\java\\DB\\DataBase\\db.properties";
-            String dbFile = "/home/s336805/labka7/common/src/main/java/DB/DataBase/db.properties";
+            String dbFile = "path to property";
             FileReader fileReader = new FileReader(dbFile);
             properties.load(fileReader);
             String dbDriver = properties.getProperty("db.jdbc.drivers");
@@ -114,7 +112,6 @@ public class ConnectToDB {
         }
         return "";
     }
-    //какой нибудь метод, который перенаправляет на отправку запроса
 
     public Object sendToDB(Cmd cmd){
         try {

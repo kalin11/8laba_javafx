@@ -63,21 +63,10 @@ public class GetCommand implements Runnable{
                 if (cmd.getName().equals("clear")) {
                     parser = new CommandLineParser(cmd.getName(), initCommands());
                     o = parser.exe(visitor, cmd);
-//                    sendData = new SendDataToTheClient();
-//                    sendData.sendData(channel, o);
-//                    sendData.closeOutput();
                 }
-                    //типа запрос в бд
-                    //если ловим SQL исключение, то ничего не делаем
-                    //если не ловим, то меняем коллекцию,
-                    //карочи, команду clear и все похожие(которые модифицируют коллекцию по нескольким объектам) надо делать с локальной коллекцией
-//                }
                 else {
                     parser = new CommandLineParser(cmd.getName(), initCommands());
                     o = parser.exe(visitor);
-//                    sendData = new SendDataToTheClient();
-//                    sendData.sendData(channel, o);
-//                    sendData.closeOutput();
                 }
                 System.out.println("sending data to the client");
             }
@@ -87,18 +76,12 @@ public class GetCommand implements Runnable{
                 parser = new CommandLineParser(cmd.getName() + " " + cmd.getArguments() + " " + cmd.getMovie().allInfo(), initCommands());
                 System.out.println("server - " + cmd.getMovie().getOperator().getBirthday());
                 o = parser.exe(visitor, cmd);
-//                sendData = new SendDataToTheClient();
-//                sendData.sendData(channel, o);
-//                sendData.closeOutput();
                 System.out.println("sending data to the client");
             }
             else {
                 if (cmd.getName().equals("count_by_genre")){
                     parser = new CommandLineParser(cmd.getName() + " " + cmd.getArguments() + " " + cmd.getFile(), initCommands());
                     o = parser.exe(visitor);
-//                    sendData = new SendDataToTheClient();
-//                    sendData.sendData(channel, o);
-//                    sendData.closeOutput();
                     System.out.println("sending data to the client");
                 }
                 else {
@@ -106,13 +89,9 @@ public class GetCommand implements Runnable{
                     if (cmd.getName().equals("remove_by_id")) {
                         parser = new CommandLineParser(cmd.getName() + " " + cmd.getArguments(), initCommands());
                         o = parser.exe(visitor, cmd);
-//                    sendData = new SendDataToTheClient();
-//                    sendData.sendData(channel, o);
-//                    sendData.closeOutput();
                         System.out.println("sending data to the client");
                     }
                     else if (cmd.getName().equals("execute_script")){
-//                        parser = new CommandLineParser(cmd.getName() + " " + cmd.getArguments() + " " + cmd.getFile(), initCommands());
                         parser = new CommandLineParser(cmd.getName() + " " + cmd.getArguments() + " " + cmd.getCommands(), initCommands());
                         o = parser.exe(visitor, cmd);
                         System.out.println("скрипт");

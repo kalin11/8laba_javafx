@@ -48,17 +48,3 @@ public class HeadCommand implements CommandWithoutMovie {
 
 }
 
-//public static class Parser implements CommandParser<HeadCommand, String> {
-//    LinkedCollection linkedCollection = new LinkedCollection();
-//
-//    
-//    public String parseCommandLine(String line) {
-//        return "head" == line ? line : null;
-//    }
-//
-//    
-//    public HeadCommand parseCommand(String lineParsingResult, BufferedReader in) {
-//
-//        return new HeadCommand();
-//    }
-//}

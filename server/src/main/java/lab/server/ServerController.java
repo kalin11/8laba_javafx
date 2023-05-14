@@ -20,10 +20,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class ServerController {
-//    private static final String url = "jdbc:postgresql://localhost:63333/studs";
-//    private static final String username = "s336805";
-//    private static final String password = "ipb588";
-//    private static final String driver = "org.postgresql.Driver";
     private ExecutorService poolReader = Executors.newCachedThreadPool();
     private Cmd cmd = null;
 
@@ -79,13 +75,8 @@ public class ServerController {
                                     Thread sender = new Thread(sendData);
                                     sender.start();
                                     sender.join();
-                                    //тут скорее всего join нужен будет, чтобы дождаться конца получаения команды
-                                    //  new Thread
-                                    // send.sendData(getCommand);
                                 }
                                 else {
-//                                    Thread.sleep(3000);
-                                    //new Thread
                                     SendDataToTheClient sendData = new SendDataToTheClient(channel, autorize, key);
                                     Thread Sender = new Thread(sendData);
                                     Sender.start();

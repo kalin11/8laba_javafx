@@ -140,35 +140,6 @@ public class LogInController implements Initializable {
         return socket;
     }
 
-    public void switchToMainScene(ActionEvent event){
-//        button_login.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                ConnectToServer connect = new ConnectToServer();
-//                Authorization authorization = new Authorization();
-//                try {
-//                    authorization.login(connect.getSocket(),  tf_username.getText().trim(), tf_password.getText().trim());
-//                    GetDataFromServer getDataFromServer = new GetDataFromServer();
-//                    String answer = getDataFromServer.getData(connect.getSocket()).toString();
-//                    if (answer.equals("Вы успешно вошли!")){
-//                        SceneController sceneController = new SceneController();
-//                        sceneController.switchToMainScene(event, connect.getSocket());
-//                    }
-//                    else if (answer.equals("такой учетной записи не было найдено")){
-//                        Alert alert = new Alert(Alert.AlertType.ERROR);
-//                        alert.setContentText("такой учетной записи не было найдено");
-//                        alert.show();
-//                    }
-//                } catch (IOException e) {
-//                    System.out.println("LogIn IO");
-//                } catch (ClassNotFoundException e) {
-//                    System.out.println("ClassNotFound Log in");
-//                }
-//
-//            }
-//        });
-
-    }
 
     public void changeLanguage(ActionEvent event){
         String language = login_language.getValue();

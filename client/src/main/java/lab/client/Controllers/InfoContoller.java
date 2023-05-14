@@ -129,43 +129,6 @@ public class InfoContoller implements Initializable {
         }
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-//        update.setOnAction(event -> {
-//            SceneController sceneController = new SceneController();
-//            try {
-//                sceneController.switchToUpdateScene(event, this.socket, username, password, product);
-//                stage.close();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//
-//        });
-//        remove.setOnAction(event -> {
-//            GetCommand getCommand = new GetCommand();
-//            String[] cmd = new String[2];
-//            cmd[0] = "remove_by_id";
-//            cmd[1] = product.getmovie_id().toString();
-//            try {
-//                getCommand.getCmdAndSendToTheServer(this.socket, cmd, this.username, this.password, null);
-//                String answer = new GetDataFromServer().getData(this.socket).toString();
-//                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//                alert.setContentText("Server's answer");
-//                if (answer.isEmpty()){
-//                    alert.setContentText("Успешно!");
-//                }
-//                else {
-//                    alert.setContentText(answer);
-//                }
-//                alert.showAndWait();
-//                stage.close();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            } catch (ClassNotFoundException e) {
-//                e.printStackTrace();
-//            }
-//        });
-    }
 
     public void setResourceBundle(ResourceBundle resourceBundle) {
         this.resourceBundle = resourceBundle;

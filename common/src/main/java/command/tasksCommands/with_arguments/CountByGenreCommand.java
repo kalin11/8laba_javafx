@@ -61,14 +61,4 @@ public class CountByGenreCommand implements CommandWithoutMovie {
             return false;
         }
     }
-//        if (args.length==0){
-//            System.out.println("вы ввели команду без аргумента, что считать? вы можете ввести 'ACTION, DRAMA, HORROR, SCIENCE_FICTION'");
-//            return false;
-//        }
-//        else if (args.length > 1){
-//            System.out.println("вы ввели слишком много аругментов");
-//            return false;
-//        }
-//        else return true;
-//    }
 }

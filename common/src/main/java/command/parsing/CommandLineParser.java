@@ -83,10 +83,6 @@ public class CommandLineParser {
 
                     System.arraycopy(cmds, 2, com, 0, cmds.length - 2);
 
-//                System.out.println(Arrays.toString(com));
-//                System.out.println(Arrays.stream(com).map( Object::toString )
-//                        .collect( Collectors.joining( "\n" )));
-                //это массив с командами скрипта
                 return c.accept(visitor, Arrays.stream(ll).map( Object::toString )
                         .collect( Collectors.joining( "!")));
                 }catch (StringIndexOutOfBoundsException e){
@@ -183,53 +179,11 @@ public class CommandLineParser {
                                 res += cw.accept(visitor, com) + "\n";
                             }
                         }
-//                        String[] args = com.getArguments().split(" ");
-//                        if (args == null){
-//                            if (cw.execute(new String[0], in)){
-//                                return cw.accept(visitor, com);
-//                            }
-//                        }
-//                        else {
-//                            if (cw.execute(com.getArguments().split(" "), in)) {
-//                                return cw.accept(visitor, com);
-//                            }
-//                        }
                     }
                 }
             }
             return res;
         }
-//        }else if (cmds[0].equals("execute_script")){
-//            CommandWithFile c = (CommandWithFile) commands.get(CommandName.fromString(cmds[0]));
-//            if (c == null){
-//                System.out.println("такой команды нет");
-//            }
-//            else{
-//                try {
-//                    String[] what = line.split(" ", 3);
-//
-//                    String kak = line.substring(26);
-//                    final String[] ll = what[2].split("!");
-//
-////                    System.out.println(Arrays.toString(ll));
-//
-//                    final String[] com = new String[cmds.length - 2];
-//
-//                    System.arraycopy(cmds, 2, com, 0, cmds.length - 2);
-//
-////                System.out.println(Arrays.toString(com));
-////                System.out.println(Arrays.stream(com).map( Object::toString )
-////                        .collect( Collectors.joining( "\n" )));
-//                    //это массив с командами скрипта
-//                    return c.accept(visitor, Arrays.stream(ll).map( Object::toString )
-//                            .collect( Collectors.joining( "!")));
-//                    //todo сделать иначе
-//                }catch (StringIndexOutOfBoundsException e){
-//                    System.out.print("");
-//                }
-//
-//            }
-//        }
         else {
             //remove_by_id
             final String[] commandArguments = new String[cmds.length - 1];
@@ -251,14 +205,6 @@ public class CommandLineParser {
         }
         return "";
     }
-
-
-
-
-
-
-
-
 
     public Movie getM(String f) {
         String[] fields = f.split(",");

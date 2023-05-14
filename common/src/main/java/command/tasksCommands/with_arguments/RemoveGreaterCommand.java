@@ -27,9 +27,6 @@ public class RemoveGreaterCommand implements CommandWithMovie {
         return null;
     }
 
-//    public Object accept(Visitor v, Movie movie) {
-//        return v.visit(this, movie);
-//    }
 
     public String[] getArgs(){
         return args;

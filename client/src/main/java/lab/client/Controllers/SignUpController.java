@@ -116,9 +116,7 @@ public class SignUpController implements Initializable {
         sceneController.switchToLoginScene(event, this.socket, resourceBundle );
     }
 
-    public void switchToMainScene(ActionEvent event){
-//
-    }
+
 
     public void setSocket(Socket socket){
         this.socket = socket;
